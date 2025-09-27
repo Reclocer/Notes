@@ -1,3 +1,5 @@
+using Notes.WebApi.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,6 +16,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseCustomExceptionHandler();
+app.UseRouting();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
